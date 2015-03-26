@@ -1,0 +1,8 @@
+ru:
+  activerecord:
+    attributes:
+    lineitem:
+      quantity: Количество
+      price: Цена
+      cart: Корзина
+      product: Продукт

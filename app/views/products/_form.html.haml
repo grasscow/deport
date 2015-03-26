@@ -1,0 +1,24 @@
+
+
+= form_for @product do |f|
+  =error_messages_for(@product)
+  .row
+    .col-md-3
+      .form-group
+        =f.label :name
+        =f.text_field :name, class: "form-control"
+    .col-md-3
+      .from-group
+        =f.label :description
+        =f.text_area :description, class: "form-control"
+    .col-md-3
+      .from-group
+        =f.label :price
+        =f.text_field :price, class: "form-control"
+        %span.imput-group-addon руб
+    .col-md-3
+      .from-group
+        =f.label :weight
+        =f.text_field :weight, class: "form-control"
+  .actions
+    =f.submit nil, class: "btn btn-primary"

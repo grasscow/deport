@@ -1,0 +1,7 @@
+$body-bg: #eee; /* переопределение переменных bootstup см http://getbootstrap.com/customize/#less-variables*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+  .field_with_errors
+  {
+    @extend .has-error;
+  }
