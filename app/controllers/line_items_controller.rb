@@ -4,7 +4,7 @@ class LineItemsController < ApplicationController
   # GET /line_items
   # GET /line_items.json
   def index
-    @line_items = LineItem.all
+    @line_items = @cart.line_items.all #includes(:product). тут не пишем, в модели написали
   end
 
   # GET /line_items/1

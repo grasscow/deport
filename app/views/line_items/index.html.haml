@@ -1,27 +1,31 @@
-%h1 Listing line_items
+.page-header
+  %h1 корзина
+-if @line_items.blank?
+  .alert.alert-info Вкорзине нет товаров
+-else
+  .list-group
+    -@line_items.each_with_index do  |line_item,i|
+      .list-group-item
+        / начало обтекания
+        .pull-right
+          =line_item.quantity
+          &times;
+          =number_to_currency line_item.price
+          ="=#{number_to_currency line_item.total_price}"# в модели лайн итемс метод
+        %span.text-danger="#{i+1}"
+        =line_item.product.name
+        .clearfix
+        / конец обтекания
 
-%table
-  %thead
-    %tr
-      %th Quantity
-      %th Price
-      %th Cart
-      %th Product
-      %th
-      %th
-      %th
-      
-  %tbody
-    - @line_items.each do |line_item|
-      %tr
-        %td= line_item.quantity
-        %td= line_item.price
-        %td= line_item.cart
-        %td= line_item.product
-        %td= link_to 'Show', line_item
-        %td= link_to 'Edit', edit_line_item_path(line_item)
-        %td= link_to 'Destroy', line_item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  .alert.alert-info
+    Всего
+    =@line_items.to_a.sum(&:quantity)#& = {|x| x.quantity}sum(:guantity)не нужно так делать, так как запрос делает к баззе данных, а это долго
+    Товаров на сумму
+    =number_to_currency @line_items.to_a.sum(&:total_price) #&&
 
-%br
+
+
 
 = link_to 'New Line item', new_line_item_path
+= link_to 'очистить корзиночку', @cart, data:{method: :delete, confirm: "вы уверены?"} #data:{method: :delete, для того, чтобы стандартный метод браузера get заменился на delete
+= link_to 'Back', products_path

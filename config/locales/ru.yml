@@ -6,3 +6,9 @@ ru:
       price: Цена
       cart: Корзина
       product: Продукт
+    user:
+      email: электронная почта
+      password: пароль
+      phone_number: мобильный
+      addres: адрес
+      role: роль
