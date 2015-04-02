@@ -8,4 +8,7 @@
     = csrf_meta_tags
     = link_to "в корзине: #{@cart_cnt}", line_items_path, class: "btn btn-primary"
   %body
-    .container=yield
+    =render 'navbar'
+    .container
+      =render 'flash_messages'
+      =yield

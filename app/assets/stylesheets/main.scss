@@ -5,3 +5,7 @@ $body-bg: #eee; /* переопределение переменных bootstup 
   {
     @extend .has-error;
   }
+.alert-notice
+{
+  @extend .alert-success
+}

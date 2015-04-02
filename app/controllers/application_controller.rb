@@ -13,4 +13,30 @@ class ApplicationController < ActionController::Base
     session[:cart_id]= @cart.id
     @cart_cnt = 0
   end
+
+  def set_current_user
+    if session[:user_id].present?
+      @current_user = User.find(session[:user_id])
+    end
+  end
+
+  def require_login
+    if !@current_user
+      flash[:danger]='Требуется авторизация'
+      redirect_to login_path
+    end
+  end
+
+  def manager_permission
+    unless @current_user.try(:manager?)
+      flash[:danger]='Недостаточно прав'
+      redirect_to login_path
+    end
+  end
+  def manager_permission
+    unless @current_user.try(:admin?)
+      flash[:danger]='Недостаточно прав'
+      redirect_to login_path
+    end
+  end
 end
