@@ -17,7 +17,7 @@
 
 = link_to 'Back', products_path
 -#  создаем кнопку похожую на кнопку #(product_id:@product.id) чтобы передавался и айди продукта на создание пункта корзины
-= link_to line_items_path(product_id: @product.id), data: {method: :post},class: "btn btn-primary" do
+= link_to line_items_path(product_id: @product.id), data: {method: :post, remote: true},class: "btn btn-primary" do
   =fa_icon "cart-plus 2x"
   -#cart-plus 2x больше иконки cart-plus в 2 раза
   Добавить в корзину

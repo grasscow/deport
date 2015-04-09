@@ -10,5 +10,6 @@
   %body
     =render 'navbar'
     .container
+      =show_cart(@cart) if @cart
       =render 'flash_messages'
       =yield

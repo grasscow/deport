@@ -26,7 +26,11 @@ class LineItemsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @cart.add_item(@product)
-    redirect_to @product, notice:  "Товар добавлен в корзину"
+    #redirect_to @product, notice:  "Товар добавлен в корзину"
+    respond_to do |fomat| #указать какой тип запроса аякс или нет
+      format.html {redirect_to  @product, notice:  "Товар добавлен в корзину"}
+      format.js
+    end
   end
 
   # PATCH/PUT /line_items/1
