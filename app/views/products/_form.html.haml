@@ -20,5 +20,14 @@
       .from-group
         =f.label :weight
         =f.text_field :weight, class: "form-control"
+    .col-md-3
+      .from-group
+        =f.label :category
+        =f.text_field :category, class: "form-control"
+      .col-md-3
+        .from-group
+          =f.label :image
+          =f.file_field :image
+
   .actions
     =f.submit nil, class: "btn btn-primary"
