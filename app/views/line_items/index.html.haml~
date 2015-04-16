@@ -14,7 +14,7 @@
           ="=#{number_to_currency line_item.total_price}"# в модели лайн итемс метод
           = link_to  line_item, :method => :delete, class:"btn btn-danger" do
             =fa_icon "fa times"
-            удалить
+            = t('layouts.destroy')
 
         %span.text-danger="#{i+1}"
         =line_item.product.name

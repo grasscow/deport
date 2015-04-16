@@ -57,7 +57,7 @@ class CartsController < ApplicationController
   # DELETE /carts/1.json
   def destroy
     @cart.destroy
-    redirect_to root_path, notice: "Корзина пуста"
+    respond_to root_path, notice: "Корзина пуста"
 
   end
 

@@ -1,1 +1,1 @@
-alert "товар << <%=j @product.name%> >> добавить в корзину"
+$('#cart_info').html("<%= escape_javascript render(@cart) %>");

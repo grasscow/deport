@@ -6,8 +6,5 @@
         - @cart.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :id
-    = f.number_field :id
   .actions
     = f.submit 'Save'
