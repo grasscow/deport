@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Cart:
+  = @order.cart
+%p
+  %b User:
+  = @order.user
+%p
+  %b Addres:
+  = @order.addres
+%p
+  %b Status:
+  = @order.status
+%p
+  %b Comment:
+  = @order.comment
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path

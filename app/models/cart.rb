@@ -1,4 +1,5 @@
 class Cart < ActiveRecord::Base
+  has_one :order, dependent: :destroy
   has_many :line_items, ->{includes(:product).order(:created_at)}, dependent: :destroy #->{includes(:product)} чтобы добавлялось к запросу
   def add_item(p)
     line_item=line_items.where(product_id: p.id).first

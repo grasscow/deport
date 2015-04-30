@@ -1,0 +1,13 @@
+%h1 New order
+
+=form_for @order do |f|
+  =error_messages_for @order
+  .form-group
+    =f.label :address
+    =f.text_area :address, class: "form-group", rows: 3
+  .actions
+    =f.submit nil, class: "btn btn-primary"
+
+
+
+= link_to 'Back', orders_path

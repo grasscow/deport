@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :orders, dependent: :nullify
   ROLES=%w(Пользователь Менеджер Администратор)#0-пользоват,1-менеджер, 2 - Амин
   has_secure_password #валидация на то, что пароль должен существовать и парольнужно подтвердить
   validates :password, length: {minimum: 6}, if: "password.present?"
